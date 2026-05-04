@@ -10,6 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: 1234 # Match your current password
     volumes:
       - ./database/data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
     # --- ADD THIS: HEALTHCHECK ---
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
